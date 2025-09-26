@@ -16,21 +16,17 @@ export function useBreakpoints() {
   };
 
   const isXs = () => width.value < breakpoints.xs;
-  const isSm = () =>
-    width.value >= breakpoints.xs && width.value < breakpoints.sm;
-  const isMd = () =>
-    width.value >= breakpoints.sm && width.value < breakpoints.lg;
-  const isLg = () =>
-    width.value >= breakpoints.lg && width.value < breakpoints.xl;
+  const isSm = () => width.value >= breakpoints.xs && width.value < breakpoints.sm;
+  const isMd = () => width.value >= breakpoints.sm && width.value < breakpoints.lg;
+  const isLg = () => width.value >= breakpoints.lg && width.value < breakpoints.xl;
   const isXl = () => width.value >= breakpoints.xl;
 
-  onMounted(() => {
-    window.addEventListener("resize", updateWidth);
-  });
+  const isMobile = () => isXs() || isSm();
+  const isTablet = () => isMd();
+  const isDesktop = () => isLg() || isXl();
 
-  onUnmounted(() => {
-    window.removeEventListener("resize", updateWidth);
-  });
+  onMounted(() => window.addEventListener("resize", updateWidth));
+  onUnmounted(() => window.removeEventListener("resize", updateWidth));
 
   return {
     width,
@@ -40,5 +36,8 @@ export function useBreakpoints() {
     isMd,
     isLg,
     isXl,
+    isMobile,
+    isTablet,
+    isDesktop,
   };
 }
