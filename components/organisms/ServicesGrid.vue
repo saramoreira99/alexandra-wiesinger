@@ -57,7 +57,8 @@ const cards = [
   { title: "AW AUDIT", image: imgAudit, description: "Externe Auditierung nach höchsten Standards", link: '/audit' },
 ]
 
-const { isMobile } = useBreakpoints()
+const { isSm } = useBreakpoints();
+const isMobile = isSm();
 const carouselRef = ref(null)
 </script>
 
@@ -90,7 +91,7 @@ const carouselRef = ref(null)
   display: none; 
 }
 
-@media (max-width: 800px) {
+@media (max-width: var(--breakpoint-sm)) {
   .carousel-container {
     width: 100%;
     margin: 30px 0;

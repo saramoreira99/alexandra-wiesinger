@@ -20,7 +20,6 @@
 </template>
 
 <script setup>
-
 </script>
 
 <style scoped>
@@ -58,7 +57,7 @@ footer {
   margin-right: 4px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: var(--breakpoint-sm)) {
   footer {
     padding: 4rem 0;
   }
