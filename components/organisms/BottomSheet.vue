@@ -1,6 +1,6 @@
 <script setup>
 import { defineProps, defineEmits } from 'vue';
-import ContactButton from './ContactButton.vue';
+import Button from '@/components/atoms/Button.vue';
 
 const props = defineProps({
   title: { type: String, required: true },

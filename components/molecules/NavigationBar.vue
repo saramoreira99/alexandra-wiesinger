@@ -19,11 +19,9 @@
 </template>
 
 <script setup>
-import { useRoute } from "vue-router";
 import HamburgerMenu from "@/components/molecules/HamburgerMenu.vue";
 import { useBreakpoints } from "@/composables/useBreakpoints.js";
 
-const route = useRoute();
 const { isMobile } = useBreakpoints();
 </script>
 

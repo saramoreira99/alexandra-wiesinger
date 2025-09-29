@@ -2,16 +2,38 @@ import { defineNuxtConfig } from 'nuxt/config'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import { fileURLToPath } from 'url'
 
-
-
 export default defineNuxtConfig({
   pages: true,
+  components: [
+   
+    { path: '~/components/atoms', pathPrefix: false },      
+    { path: '~/components/molecules', pathPrefix: false },   
+
+   
+    { path: '~/components/organisms', pathPrefix: false },  
+    { path: '~/components/sections', pathPrefix: false },  
+    { path: '~/components/templates', pathPrefix: false },  
+
+    
+    { path: '~/components', pathPrefix: false }
+  ],
+
   dir: {
     pages: fileURLToPath(new URL('./pages', import.meta.url))
   },
   compatibilityDate: '2025-09-24',
+
   vite: {
-    plugins: [tsconfigPaths()]
+    plugins: [
+      tsconfigPaths({
+        root: './' 
+      })
+    ],
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./', import.meta.url))
+      }
+    }
   },
 
   app: {
@@ -28,27 +50,33 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: [
- 
-  ],
+  runtimeConfig: {
+    public: {
+      contactEmail: process.env.CONTACT_EMAIL
+    },
+    smtpUser: process.env.SMTP_USER || '',
+    smtpPass: process.env.SMTP_PASS || '',
+    smtpHost: process.env.SMTP_HOST || '',
+    smtpPort: Number(process.env.SMTP_PORT) || 587
+  },
+
+  modules: [],
 
   css: [
-  '/Users/saramoreira/alexandra-wiesinger/assets/css/base.css',
-  '/Users/saramoreira/alexandra-wiesinger/assets/css/main.css'
+  '@/assets/css/base.css',
+  '@/assets/css/main.css'
 ],
 
   build: {
-    transpile: [],
-   
+    transpile: []
   },
-
 
   typescript: {
     strict: true
   },
 
   nitro: {
-    preset: 'node-server'
+    preset: 'node-server',
+    serveStatic: true
   }
 })
-

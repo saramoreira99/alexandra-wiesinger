@@ -6,8 +6,8 @@
 </template>
 
 <script setup>
-import AboutText from "./AboutText.vue";
-import aboutText from "@/content/about-text.js";
+import aboutText from "@/content/aboutText.js";
+import AboutText from "@/components/atoms/AboutText.vue";
 
 const title = "ÜBER MICH";
 </script>

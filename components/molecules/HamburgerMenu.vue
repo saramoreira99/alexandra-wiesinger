@@ -49,13 +49,11 @@
 
 <script setup>
 import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
-import { useRoute } from 'vue-router'
 import { useBreakpoints } from '@/composables/useBreakpoints'
 
 const menuOpen = ref(false)
 const overlayMenu = ref(null)
 const hamburgerBtn = ref(null)
-const route = useRoute()
 const { isMobile } = useBreakpoints()
 
 const toggleMenu = () => (menuOpen.value = !menuOpen.value)

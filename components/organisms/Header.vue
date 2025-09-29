@@ -18,9 +18,10 @@
 
 <script setup>
 import Logo from '@/assets/images/Logo.png'
-import NavigationBar from '@/components/NavigationBar.vue'
-import ContactButton from '@/components/ContactButton.vue'
+import NavigationBar from '@/components/molecules/NavigationBar.vue'
+import ContactButton from '@/components/atoms/Button.vue'
 import { useBreakpoints } from '@/composables/useBreakpoints'
+
 
 const { isMobile } = useBreakpoints()
 </script>

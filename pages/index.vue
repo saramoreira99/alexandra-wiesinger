@@ -1,3 +1,16 @@
+<script setup>
+import ServicesGrid from '@/components/organisms/ServicesGrid.vue';
+import HeroText from "@/components/atoms/HeroText.vue";
+import Button from "@/components/atoms/Button.vue";
+import AboutSection from '@/components/sections/AboutSection.vue';
+import HeroSection from '@/components/sections/HeroSection.vue';
+import { useBreakpoints } from '@/composables/useBreakpoints';
+
+
+
+const { isSm } = useBreakpoints();
+</script>
+
 <template>
   <main>
     <div class="hero-container">
@@ -9,23 +22,11 @@
       <AboutSection />
       <ServicesGrid />
     </div>
-    <div v-if="isMobile" class="button-container">
+    <div v-if="isSm()" class="button-container">
       <Button :size="'md'" class="fixed-button">Test</Button>
     </div>
   </main>
 </template>
-
-<script setup>
-import HeroSection from '@/components/HeroSection.vue';
-import ServicesGrid from '@/components/ServicesGrid.vue';
-import HeroText from "@/components/HeroText.vue";
-import Button from "@/components/Button.vue";
-import AboutSection from '@/components/AboutSection.vue';
-import { useBreakpoints } from '@/composables/useBreakpoints';
-
-const { isSm } = useBreakpoints();
-const isMobile = isSm();
-</script>
 
 <style scoped>
 .button-container {

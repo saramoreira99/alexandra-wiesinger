@@ -45,8 +45,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useBreakpoints } from '@/composables/useBreakpoints'
-import ServiceCard from './ServiceCard.vue'
-
+import ServiceCard from '@/components/molecules/ServiceCard.vue'
 import imgAcademy from "@/assets/images/imgAcademy.jpg"
 import imgConsulting from "@/assets/images/imgConsulting.jpg"
 import imgAudit from "@/assets/images/imgAudit.jpg"
@@ -58,8 +57,7 @@ const cards = [
 ]
 
 const { isSm } = useBreakpoints();
-const isMobile = isSm();
-const carouselRef = ref(null)
+const carouselRef = ref(null);
 </script>
 
 <style scoped>

@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-import CustomButton from "@/components/CustomButton.vue";
+import Button from "@/components/atoms/Button.vue";
 
 const props = defineProps({
   title: String,

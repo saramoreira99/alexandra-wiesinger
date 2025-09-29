@@ -9,7 +9,7 @@
 
 <style scoped>
 .highlight {
-  color: var(--color-primary); /* z. B. Pink */
+  color: var(--color-primary); 
   font-weight: bold;
 }
 </style>

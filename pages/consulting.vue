@@ -1,25 +1,20 @@
 <script setup>
+import ConsultingText from "@/components/atoms/ConsultingText.vue";
 import imgConsulting from "@/assets/images/imgConsulting.jpg";
-import ResponsiveServicesPage from "@/components/ResponsiveServicesPage.vue";
-import ConsultingText from "@/components/ConsultingText.vue";
-
-
+import ResponsiveServicesPage from "@/components/organisms/ResponsiveServicesPage.vue";
 </script>
 
 <template>
   <ResponsiveServicesPage
-      title="Consulting-Dienstleistungen"
+      title="AW Consulting"
       :image="imgConsulting"
-      cta-text="Lassen Sie sich jetzt beraten"
+      cta-text="Jetzt Beratung anfragen"
   >
     <template #description>
       <ConsultingText />
     </template>
-
-
   </ResponsiveServicesPage>
 </template>
 
 <style scoped>
-
 </style>

@@ -1,20 +1,18 @@
 <script setup>
-import ResponsiveServicesPage from "@/components/ResponsiveServicesPage.vue";
+import AuditText from "@/components/atoms/AuditText.vue";
 import imgAudit from "@/assets/images/imgAudit.jpg";
-import AuditText from "@/components/AuditText.vue";
+import ResponsiveServicesPage from "@/components/organisms/ResponsiveServicesPage.vue";
 </script>
 
 <template>
   <ResponsiveServicesPage
-      title="Audit-Dienstleistungen"
+      title="AW Audit"
       :image="imgAudit"
-      cta-text="buche bruder"
+      cta-text="Audit jetzt buchen"
   >
     <template #description>
       <AuditText />
     </template>
-
-
   </ResponsiveServicesPage>
 </template>
 

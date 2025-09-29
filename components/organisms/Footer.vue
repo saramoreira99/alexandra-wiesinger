@@ -1,5 +1,5 @@
 <template>
-  <footer aria-label="Rechtliche Hinweise">
+  <footer :class="{ mobile: isSm() }">
     <nav class="rechtliche-hinweise" aria-label="Rechtliche Hinweise Seite">
       <p>Rechtliche Hinweise:</p>
       <ul>
@@ -20,6 +20,9 @@
 </template>
 
 <script setup>
+import { useBreakpoints } from '@/composables/useBreakpoints';
+
+const { isSm } = useBreakpoints();
 </script>
 
 <style scoped>
@@ -57,19 +60,17 @@ footer {
   margin-right: 4px;
 }
 
-@media (max-width: var(--breakpoint-sm)) {
-  footer {
-    padding: 4rem 0;
-  }
+footer.mobile {
+  padding: 4rem 0;
+}
 
-  .rechtliche-hinweise ul {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-  }
+footer.mobile .rechtliche-hinweise ul {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
 
-  .rechtliche-hinweise li {
-    white-space: normal;
-  }
+footer.mobile .rechtliche-hinweise li {
+  white-space: normal;
 }
 </style>

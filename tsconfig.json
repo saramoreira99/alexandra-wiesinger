@@ -3,13 +3,24 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Node",
-    "allowJs": true,
-    "checkJs": true,
-    "outDir": "./dist",       // → Hier wird das kompilierte JS ausgegeben
-    "rootDir": "./",         // → Quellcodebasis
+    "lib": ["ESNext", "DOM"],
     "esModuleInterop": true,
-    "strict": true
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
-  "include": ["**/*.ts", "**/*.js"],
-  "exclude": ["node_modules", ".nuxt", "dist"]
+  "exclude": [
+    "node_modules",
+    ".nuxt",
+    "dist"
+  ],
+  "include": [
+    "./**/*.ts",
+    "./**/*.d.ts",
+    "./**/*.vue"
+  ]
 }

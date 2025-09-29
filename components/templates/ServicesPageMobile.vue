@@ -1,6 +1,6 @@
 <script setup>
 import { defineProps } from 'vue';
-import BottomSheet from "@/components/BottomSheet.vue";
+import BottomSheet from "@/components/organisms/BottomSheet.vue";
 
 const props = defineProps({
   title: { type: String, required: true },

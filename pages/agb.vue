@@ -1,6 +1,6 @@
 <script setup>
 
-import LegalNotes from "@/components/LegalNotes.vue";
+import LegalNotes from "@/components/templates/LegalNotes.vue";
 
 const AGBText = `
   <h4><strong>1. Geltungsbereich:</strong></h4>
