@@ -1,5 +1,6 @@
 <template>
   <div class="hamburger-menu">
+    <!-- Hamburger Button -->
     <button
       class="hamburger"
       @click="toggleMenu"
@@ -10,37 +11,33 @@
       <img
         class="hamburger-icon"
         v-if="menuOpen"
-        src="@/assets/images/hamburger-icon-blue.png"
+        :src="hamburgerIconOpen"
         alt="Hamburger Icon Blau"
       />
       <img
         class="hamburger-icon"
         v-else
-        src="@/assets/images/hamburger-icon-rosa.png"
+        :src="hamburgerIconClosed"
         alt="Hamburger Icon Pink"
       />
     </button>
 
+    <!-- Overlay Menu -->
     <div
       :class="['overlay', { open: menuOpen }]"
       role="menu"
       :aria-hidden="(!menuOpen).toString()"
     >
       <ul class="nav-links" ref="overlayMenu">
-        <li>
-          <NuxtLink to="/" role="menuitem" :aria-current="route.path === '/' ? 'page' : null" @click="closeMenu">START</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/academy" role="menuitem" :aria-current="route.path === '/academy' ? 'page' : null" @click="closeMenu">ACADEMY</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/consulting" role="menuitem" :aria-current="route.path === '/consulting' ? 'page' : null" @click="closeMenu">CONSULTING</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/audit" role="menuitem" :aria-current="route.path === '/audit' ? 'page' : null" @click="closeMenu">AUDIT</NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/contact" role="menuitem" :aria-current="route.path === '/contact' ? 'page' : null" @click="closeMenu">KONTAKT</NuxtLink>
+        <li v-for="link in navLinks" :key="link.path">
+          <NuxtLink
+            :to="link.path"
+            role="menuitem"
+            :aria-current="route.path === link.path ? 'page' : null"
+            @click="closeMenu"
+          >
+            {{ link.label }}
+          </NuxtLink>
         </li>
       </ul>
     </div>
@@ -49,12 +46,32 @@
 
 <script setup>
 import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
+import { useRoute } from 'vue-router'
 import { useBreakpoints } from '@/composables/useBreakpoints'
+
 
 const menuOpen = ref(false)
 const overlayMenu = ref(null)
 const hamburgerBtn = ref(null)
+
+
 const { isMobile } = useBreakpoints()
+
+
+const route = useRoute()
+
+
+const hamburgerIconOpen = '/assets/images/hamburger-icon-blue.png'
+const hamburgerIconClosed = '/assets/images/hamburger-icon-rosa.png'
+
+
+const navLinks = [
+  { path: '/', label: 'START' },
+  { path: '/academy', label: 'ACADEMY' },
+  { path: '/consulting', label: 'CONSULTING' },
+  { path: '/audit', label: 'AUDIT' },
+  { path: '/contact', label: 'KONTAKT' }
+]
 
 const toggleMenu = () => (menuOpen.value = !menuOpen.value)
 const closeMenu = () => (menuOpen.value = false)
@@ -76,6 +93,7 @@ watch(menuOpen, (open) => {
   }
 })
 
+// --- Keyboard Navigation ---
 const handleKeydown = (e) => {
   if (e.key === 'Escape') closeMenu()
   if (e.key === 'Tab' && menuOpen.value && overlayMenu.value) {
@@ -98,9 +116,9 @@ onBeforeUnmount(() => window.removeEventListener('keydown', handleKeydown))
 
 <style scoped>
 :root {
-  --menu-bg: rgba(223, 79, 131, 0.9);
+  --menu-bg: rgba(223, 79, 131, 0.95);
   --menu-text: white;
-  --menu-hover: #0D0535;
+  --menu-hover: #0d0535;
 }
 
 .hamburger {
@@ -109,8 +127,9 @@ onBeforeUnmount(() => window.removeEventListener('keydown', handleKeydown))
   border: none;
   cursor: pointer;
   color: white;
-  z-index: 1101; 
+  z-index: 2000; /* höher gesetzt für Sicherheit */
   padding: 0;
+  position: relative;
 }
 
 .hamburger-icon {
@@ -132,7 +151,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', handleKeydown))
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease-in-out;
-  z-index: 1100; 
+  z-index: 1500;
   display: flex;
   align-items: center;
   justify-content: center;

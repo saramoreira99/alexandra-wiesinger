@@ -1,5 +1,5 @@
 <template>
-  <section class="services-grid" aria-labelledby="services-title">
+  <section id="services" class="services-grid" aria-labelledby="services-title">
     <h2 id="services-title" class="services-overview">Qualität in allen Bereichen</h2>
 
     <div v-if="!isMobile" class="grid">

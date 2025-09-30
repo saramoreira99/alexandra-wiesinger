@@ -1,5 +1,5 @@
 <script setup>
-import aboutText from '@/content/heroText.js'
+import heroText from '@/content/heroText.js'
 </script>
 
 <template>
@@ -12,8 +12,8 @@ import aboutText from '@/content/heroText.js'
 .hero-text {
   line-height: 1.5;
   color: white;
-  text-align: center;
+  text-align: left;
   max-width: 60ch;
-  margin: 0 auto;
+  margin: 0;
 }
 </style>

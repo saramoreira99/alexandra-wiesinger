@@ -1,173 +1,113 @@
-html, body {
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-family);
-  font-size: clamp(16px, 1.2vw, 20px);
-  line-height: 1.6;
-  background-color: var(--color-bg);
-  color: var(--color-text);
+/* === Main.css === */
+
+:root {
+  /* Farben */
+  --color-bg: #0D0535;
+  --color-text: #ffffff;
+  --color-primary: #df4f83;
+  --color-highlight-bg: #f5f5f5;
+
+  /* Schatten */
+  --box-shadow-light: 
+    0px 2px 4px rgba(255, 255, 255, 0.15),
+    0px 6px 12px rgba(255, 255, 255, 0.25);
+
+  --box-shadow-dark: 
+    0px 2px 4px rgba(0, 0, 0, 0.15),
+    0px 8px 20px rgba(0, 0, 0, 0.25);
+
+  /* Typografie */
+  --font-family: 'Source Sans Pro', sans-serif;
+
+  /* Grundgrößen in REM */
+  --h1-size: 1.75rem;
+  --h2-size: 1.25rem;
+  --h3-size: 1.125rem;
+  --subheading-size: 0.875rem;
+  --body-size: 0.875rem;
+  --button-large-size: 0.875rem;
+  --button-medium-size: 0.75rem;
+  --button-small-size: 0.625rem;
+
+  /* Breakpoints */
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 767px;
+  --breakpoint-md: 1024px;
+  --breakpoint-lg: 1230px;
+  --breakpoint-xl: 1440px;
 }
 
-h1 {
-  font-size: 2.5rem;
-  line-height: 1.2;
-}
+h1 { font-size: var(--h1-size); }
+h2 { font-size: var(--h2-size); }
+h3 { font-size: var(--h3-size); }
+.subheading { font-size: var(--subheading-size); }
+body { font-size: var(--body-size); }
+button.large { font-size: var(--button-large-size); }
+button.medium { font-size: var(--button-medium-size); }
+button.small { font-size: var(--button-small-size); }
 
-h2 {
-  font-size: 1.8rem;
-  line-height: 1.3;
-}
-
-p {
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-#app {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  max-width: 100vw;
-  margin: 0 auto;
-}
-
-a {
-  text-decoration: none;
-  color: var(--color-text);
-  padding: 3px;
-}
-
-@media (hover: hover) {
-  a:hover {
-    color: var(--color-primary);
+/* Responsive Typografie */
+@media (min-width: 480px) {
+  :root {
+    --h1-size: 1.75rem;
+    --h2-size: 1.25rem;
+    --h3-size: 1.125rem;
+    --subheading-size: 0.875rem;
+    --body-size: 0.875rem;
+    --button-large-size: 0.875rem;
+    --button-medium-size: 0.75rem;
+    --button-small-size: 0.625rem;
   }
 }
 
-.text-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 2rem;
-  background-color: var(--color-highlight-bg);
-}
-
-
-.image-section {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow: hidden;
-}
-
-.highlight {
-  color: var(--color-primary);
-}
-
-.legal-information strong {
-  font-weight: bold;
-}
-
-.description-box ul {
-  list-style: none;
-  margin: 1rem 0;
-  padding-left: 0;
-}
-
-.description-box li {
-  font-weight: bold;
-  position: relative;
-  padding-left: 1.2rem;
-}
-
-.description-box li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--color-bg);
-}
-
-.el_carousel_mask {
-  background-color: transparent;
-}
-
-.linkedin-float {
-  position: fixed;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  z-index: 1000;
-
-  background-color: white;
-  color: var(--color-bg);
-
-  width: 40px;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
-
-  transition: all 0.2s ease-in-out;
-  text-decoration: none;
-}
-
-.linkedin-float:hover {
-  opacity: 1;
-  background-color: #004182;
-  color: white;
-}
-
-.linkedin-float i {
-  font-size: 24px;
-}
-
-@media (max-width: var(--breakpoint-lg)) {
-  html {
-    font-size: 14px;
-    line-height: 1.6;
+@media (min-width: 767px) {
+  :root {
+    --h1-size: 2.3125rem;
+    --h2-size: 1.5625rem;
+    --h3-size: 1.375rem;
+    --subheading-size: 0.9375rem;
+    --body-size: 0.9375rem;
+    --button-large-size: 1rem;
+    --button-medium-size: 0.875rem;
+    --button-small-size: 0.75rem;
   }
+}
 
-  body {
-    padding: 0 1rem;
+@media (min-width: 1024px) {
+  :root {
+    --h1-size: 2.875rem;
+    --h2-size: 1.875rem;
+    --h3-size: 1.625rem;
+    --subheading-size: 1rem;
+    --body-size: 1rem;
+    --button-large-size: 1.125rem;
+    --button-medium-size: 0.9275rem;
+    --button-small-size: 0.8125rem;
   }
+}
 
-  #app {
-    padding: 1rem 0;
+@media (min-width: 1230px) {
+  :root {
+    --h1-size: 3.25rem;
+    --h2-size: 2.1875rem;
+    --h3-size: 1.9375rem;
+    --subheading-size: 1.125rem;
+    --body-size: 1.0625rem;
+    --button-large-size: 1.1875rem;
+    --button-medium-size: 1rem;
+    --button-small-size: 0.875rem;
   }
+}
 
-  main {
-    margin-top: 0;
-  }
-
-  .text-section,
-  .image-section {
-    width: 100%;
-    padding: 1rem;
-  }
-
-  .image-section {
-    height: 200px;
-  }
-
-  footer ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .description-box li {
-    font-size: 0.95rem;
-    padding-left: 1rem;
-  }
-
-  button {
-    font-size: 12px;
-  }
-
-  .linkedin-float {
-    top: 94%;
+@media (min-width: 1440px) {
+  :root {
+    --h1-size: 3.625rem;
+    --h2-size: 2.5rem;
+    --h3-size: 2.1875rem;
+    --subheading-size: 1.25rem;
+    --body-size: 1.1875rem;
+    --button-large-size: 1.25rem;
+    --button-medium-size: 1.0625rem;
+    --button-small-size: 0.9375rem;
   }
 }

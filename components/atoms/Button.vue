@@ -42,14 +42,12 @@ const ariaLabel = computed(() => props.ariaLabel || props.label)
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-
-.size-xs { height: 30px; min-width: 80px; font-size: 0.75rem; }
-.size-md { height: 40px; min-width: 120px; font-size: 0.875rem; }
-.size-xl { height: 50px; min-width: 200px; font-size: 1rem; }
-
+.size-xs { height: 30px; min-width: 80px; font-size: var(--button-small-size); }
+.size-md { height: 40px; min-width: 120px; font-size: var(--button-medium-size); }
+.size-xl { height: 50px; min-width: 200px; font-size: var(--button-large-size); }
 
 .variant-filled {
-  background-color: #df4f83;
+  background-color: var(--color-primary);
   color: white;
   border: none;
 }
@@ -60,12 +58,11 @@ const ariaLabel = computed(() => props.ariaLabel || props.label)
   border: 1px solid white;
 }
 
-
 .button:hover,
 .button:focus {
   background: transparent;
-  border: 2px solid #df4f83;
-  color: #df4f83;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
   outline: none;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
 }
