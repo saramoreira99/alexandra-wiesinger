@@ -34,12 +34,16 @@ const columns = computed(() => {
 
 .about-column p {
   margin-bottom: 1rem;
-  line-height: 1.6;
+  line-height: 1.4;
 }
 
 @media (max-width: 768px) {
   .about-grid {
     grid-template-columns: 1fr;
+    gap: 0; 
+  }
+  .about-column p {
+    margin-bottom: 0.8rem; 
   }
 }
 </style>

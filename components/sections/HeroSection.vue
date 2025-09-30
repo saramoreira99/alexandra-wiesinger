@@ -10,10 +10,10 @@
                     <div class="text-wrapper" :class="{ mobile: isMobile }">
                         <slot name="heroText" />
                     </div>
-                    <div class="button-wrapper" :class="{ mobile: isMobile }">
-                        <Button :size="isMobile ? 'md' : 'lg'" variant="filled" class="hero-button" to="/kontakt">
+                    <div class="button-wrapper" v-if ="!isMobile"> 
+                        <Button :size="xs" variant="filled" class="hero-button" to="/kontakt" aria-label="Beratung anfragen">
                             BERATUNG ANFRAGEN </Button>
-                        <Button :size="isMobile ? 'md' : 'lg'" variant="outline" class="hero-button" to="#services">
+                        <Button :size="xs" variant="outline" class="hero-button" to="#services" aria-label="Leistungen entdecken">
                             LEISTUNGEN ENTDECKEN </Button>
                     </div>
                 </div>
@@ -49,14 +49,15 @@ const props = defineProps({
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: left;
     width: 100%;
     box-sizing: border-box;
-    margin: 5rem 0 3rem 0;
+    margin: 0 0 3rem 0;
     padding: 0;
 }
 
 .hero-section-container {
+    margin-top: 5rem;
     display: flex;
     width: 100%;
 }
@@ -66,7 +67,7 @@ const props = defineProps({
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem 0 1rem 3rem;
+    padding: 1rem 2rem;
 }
 
 .hero-image-container {
@@ -109,12 +110,14 @@ const props = defineProps({
     box-shadow: var(--box-shadow-light);
 }
 
+
 .heading.mobile {
     margin-top: 0;
 }
 
 .hero-section-container.mobile {
     flex-direction: column-reverse;
+    margin-top: -1px;
 }
 
 .hero-left-fixed.mobile {

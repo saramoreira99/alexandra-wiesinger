@@ -1,13 +1,13 @@
-/* === Main.css === */
+
 
 :root {
-  /* Farben */
+
   --color-bg: #0D0535;
   --color-text: #ffffff;
   --color-primary: #df4f83;
   --color-highlight-bg: #f5f5f5;
 
-  /* Schatten */
+ 
   --box-shadow-light: 
     0px 2px 4px rgba(255, 255, 255, 0.15),
     0px 6px 12px rgba(255, 255, 255, 0.25);
@@ -16,10 +16,10 @@
     0px 2px 4px rgba(0, 0, 0, 0.15),
     0px 8px 20px rgba(0, 0, 0, 0.25);
 
-  /* Typografie */
+
   --font-family: 'Source Sans Pro', sans-serif;
 
-  /* Grundgrößen in REM */
+
   --h1-size: 1.75rem;
   --h2-size: 1.25rem;
   --h3-size: 1.125rem;
@@ -29,7 +29,7 @@
   --button-medium-size: 0.75rem;
   --button-small-size: 0.625rem;
 
-  /* Breakpoints */
+  
   --breakpoint-xs: 480px;
   --breakpoint-sm: 767px;
   --breakpoint-md: 1024px;
@@ -46,7 +46,6 @@ button.large { font-size: var(--button-large-size); }
 button.medium { font-size: var(--button-medium-size); }
 button.small { font-size: var(--button-small-size); }
 
-/* Responsive Typografie */
 @media (min-width: 480px) {
   :root {
     --h1-size: 1.75rem;

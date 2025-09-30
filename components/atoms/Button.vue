@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
     :to="to"
-    :class="['button', sizeClass, variantClass, { 'is-mobile': isMobile }]"
+    :class="['button', sizeClass, variantClass, boxShadowClass, { 'is-mobile': isMobile }]"
     :aria-label="ariaLabel"
     role="button"
   >
@@ -18,7 +18,8 @@ const props = defineProps({
   label: { type: String, default: 'Button' },
   size: { type: String, default: 'md', validator: value => ['xs', 'md', 'xl'].includes(value) },
   variant: { type: String, default: 'filled', validator: value => ['filled', 'outline'].includes(value) },
-  ariaLabel: { type: String, default: '' }
+  ariaLabel: { type: String, default: '' },
+  boxshadow: { type: String, default: 'light', validator: value => ['light', 'dark'].includes(value) }
 })
 
 const { isMobile } = useBreakpoints()
@@ -26,6 +27,7 @@ const { isMobile } = useBreakpoints()
 const sizeClass = computed(() => `size-${props.size}`)
 const variantClass = computed(() => `variant-${props.variant}`)
 const ariaLabel = computed(() => props.ariaLabel || props.label)
+const boxShadowClass = computed(() => `box-shadow-${props.boxshadow}`)
 </script>
 
 <style scoped>
@@ -39,7 +41,6 @@ const ariaLabel = computed(() => props.ariaLabel || props.label)
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 0.75rem 2rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .size-xs { height: 30px; min-width: 80px; font-size: var(--button-small-size); }
@@ -56,6 +57,14 @@ const ariaLabel = computed(() => props.ariaLabel || props.label)
   background: transparent;
   color: white;
   border: 1px solid white;
+}
+
+.box-shadow-light {
+  box-shadow: var(--box-shadow-light);
+}
+
+.box-shadow-dark {
+  box-shadow: var(--box-shadow-dark);
 }
 
 .button:hover,

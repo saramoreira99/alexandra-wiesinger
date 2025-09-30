@@ -1,82 +1,76 @@
-import { defineNuxtConfig } from 'nuxt/config'
-import tsconfigPaths from 'vite-tsconfig-paths'
-import { fileURLToPath } from 'url'
+import { defineNuxtConfig } from "nuxt/config";
+import tsconfigPaths from "vite-tsconfig-paths";
+import { fileURLToPath } from "url";
 
 export default defineNuxtConfig({
   pages: true,
   components: [
-   
-    { path: '~/components/atoms', pathPrefix: false },      
-    { path: '~/components/molecules', pathPrefix: false },   
+    { path: "~/components/atoms", pathPrefix: false },
+    { path: "~/components/molecules", pathPrefix: false },
 
-   
-    { path: '~/components/organisms', pathPrefix: false },  
-    { path: '~/components/sections', pathPrefix: false },  
-    { path: '~/components/templates', pathPrefix: false },  
+    { path: "~/components/organisms", pathPrefix: false },
+    { path: "~/components/sections", pathPrefix: false },
+    { path: "~/components/templates", pathPrefix: false },
 
-    
-    { path: '~/components', pathPrefix: false }
+    { path: "~/components", pathPrefix: false },
   ],
 
   dir: {
-    pages: fileURLToPath(new URL('./pages', import.meta.url))
+    pages: fileURLToPath(new URL("./pages", import.meta.url)),
   },
-  compatibilityDate: '2025-09-24',
+  compatibilityDate: "2025-09-24",
 
   vite: {
     plugins: [
       tsconfigPaths({
-        root: './' 
-      })
+        root: "./",
+      }),
     ],
     resolve: {
       alias: {
-        '@': fileURLToPath(new URL('./', import.meta.url))
-      }
-    }
+        "@": fileURLToPath(new URL("./", import.meta.url)),
+        "@assets": fileURLToPath(new URL("./assets", import.meta.url)),
+        "@images": fileURLToPath(new URL("./assets/images", import.meta.url)),
+      },
+    },
   },
 
   app: {
     head: {
-      title: 'Alexandra Wiesinger Projekt',
+      title: "Alexandra Wiesinger Projekt",
       meta: [
-        { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Projekt mit Nuxt 4.1.2' },
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "description", content: "Projekt mit Nuxt 4.1.2" },
       ],
-      link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-      ]
-    }
+      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    },
   },
 
   runtimeConfig: {
     public: {
-      contactEmail: process.env.CONTACT_EMAIL
+      contactEmail: process.env.CONTACT_EMAIL,
     },
-    smtpUser: process.env.SMTP_USER || '',
-    smtpPass: process.env.SMTP_PASS || '',
-    smtpHost: process.env.SMTP_HOST || '',
-    smtpPort: Number(process.env.SMTP_PORT) || 587
+    smtpUser: process.env.SMTP_USER || "",
+    smtpPass: process.env.SMTP_PASS || "",
+    smtpHost: process.env.SMTP_HOST || "",
+    smtpPort: Number(process.env.SMTP_PORT) || 587,
   },
 
   modules: [],
 
-  css: [
-  '@/assets/css/base.css',
-  '@/assets/css/main.css'
-],
+  css: ["@/assets/css/base.css", "@/assets/css/main.css"],
 
   build: {
-    transpile: []
+    transpile: [],
   },
 
   typescript: {
-    strict: true
+    strict: true,
   },
 
   nitro: {
-    preset: 'node-server',
-    serveStatic: true
-  }
-})
+    preset: "node-server",
+    serveStatic: true,
+  },
+});

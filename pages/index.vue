@@ -5,10 +5,13 @@ import Button from "@/components/atoms/Button.vue";
 import AboutSection from '@/components/sections/AboutSection.vue';
 import HeroSection from '@/components/sections/HeroSection.vue';
 import { useBreakpoints } from '@/composables/useBreakpoints';
+import { computed } from 'vue';
 
 
+const { isSm, isXs } = useBreakpoints()
 
-const { isSm } = useBreakpoints();
+const isMobile = computed(() => isSm() || isXs())
+
 </script>
 
 <template>

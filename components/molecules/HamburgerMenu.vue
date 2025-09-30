@@ -1,6 +1,6 @@
 <template>
   <div class="hamburger-menu">
-    <!-- Hamburger Button -->
+  
     <button
       class="hamburger"
       @click="toggleMenu"
@@ -22,7 +22,7 @@
       />
     </button>
 
-    <!-- Overlay Menu -->
+   
     <div
       :class="['overlay', { open: menuOpen }]"
       role="menu"
@@ -48,6 +48,8 @@
 import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
 import { useRoute } from 'vue-router'
 import { useBreakpoints } from '@/composables/useBreakpoints'
+import hamburgerIconOpen from '@images/hamburger-icon-blue.png'
+import hamburgerIconClosed from '@images/hamburger-icon-rosa.png'
 
 
 const menuOpen = ref(false)
@@ -55,14 +57,14 @@ const overlayMenu = ref(null)
 const hamburgerBtn = ref(null)
 
 
-const { isMobile } = useBreakpoints()
+const { isSm, isXs } = useBreakpoints()
+
+const isMobile = computed(() => isSm() || isXs())
 
 
 const route = useRoute()
 
 
-const hamburgerIconOpen = '/assets/images/hamburger-icon-blue.png'
-const hamburgerIconClosed = '/assets/images/hamburger-icon-rosa.png'
 
 
 const navLinks = [
@@ -70,7 +72,7 @@ const navLinks = [
   { path: '/academy', label: 'ACADEMY' },
   { path: '/consulting', label: 'CONSULTING' },
   { path: '/audit', label: 'AUDIT' },
-  { path: '/contact', label: 'KONTAKT' }
+  { path: '/kontakt', label: 'KONTAKT' }
 ]
 
 const toggleMenu = () => (menuOpen.value = !menuOpen.value)
@@ -93,7 +95,7 @@ watch(menuOpen, (open) => {
   }
 })
 
-// --- Keyboard Navigation ---
+
 const handleKeydown = (e) => {
   if (e.key === 'Escape') closeMenu()
   if (e.key === 'Tab' && menuOpen.value && overlayMenu.value) {
@@ -116,7 +118,6 @@ onBeforeUnmount(() => window.removeEventListener('keydown', handleKeydown))
 
 <style scoped>
 :root {
-  --menu-bg: rgba(223, 79, 131, 0.95);
   --menu-text: white;
   --menu-hover: #0d0535;
 }
@@ -127,7 +128,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', handleKeydown))
   border: none;
   cursor: pointer;
   color: white;
-  z-index: 2000; /* höher gesetzt für Sicherheit */
+  z-index: 2000;
   padding: 0;
   position: relative;
 }
@@ -145,7 +146,7 @@ onBeforeUnmount(() => window.removeEventListener('keydown', handleKeydown))
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--menu-bg);
+  background-color: rgba(223, 79, 131, 0.95);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   opacity: 0;
