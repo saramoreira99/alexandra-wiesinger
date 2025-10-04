@@ -3,8 +3,9 @@ import { defineProps, defineEmits } from 'vue';
 import Button from '@/components/atoms/Button.vue';
 
 const props = defineProps({
-  title: { type: String, required: true },
+  subtitle: { type: String, required: false, default: '' },
   ctaText: { type: String, default: 'Kontakt' },
+  to: { type: String, default: '/kontakt' },
 });
 
 const emit = defineEmits(['cta-click']);
@@ -41,7 +42,7 @@ const onCtaClick = () => emit("cta-click");
 <template>
   <section class="bottom-sheet" role="region" aria-labelledby="sheet-title">
     <header class="sheet-header">
-      <h1 id="sheet-title" class="title">{{ title }}</h1>
+      <p id="sheet-title" class="subtitle">{{ subtitle }}</p>
     </header>
 
     <main class="sheet-content">
@@ -52,7 +53,7 @@ const onCtaClick = () => emit("cta-click");
   </section>
 
   <footer :class="['cta-container', { hidden: hideButton }]">
-    <Button class="cta-button" size="xl" :label="ctaText" aria-label="Kontakt aufnehmen" @click="onCtaClick" />
+    <Button class="cta-button" size="xl" :to="to" :label="ctaText" aria-label="Kontakt aufnehmen" @click="onCtaClick" />
   </footer>
 </template>
 
@@ -69,7 +70,7 @@ const onCtaClick = () => emit("cta-click");
 .sheet-header {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
 }
 
 .title {
@@ -81,7 +82,11 @@ const onCtaClick = () => emit("cta-click");
 .sheet-content {
   margin-top: 10px;
   line-height: 1.5;
+}
 
+.subtitle {
+  font-weight: bold;
+  color: #0d0535;
 }
 
 .cta-container {

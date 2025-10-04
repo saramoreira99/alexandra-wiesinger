@@ -105,7 +105,6 @@ const props = defineProps({
     border-radius: 15px;
     box-shadow: var(--box-shadow-light);
     aspect-ratio: 1 / 1;
-    margin: 1rem; 
 }
 
 .heading {
@@ -129,7 +128,7 @@ const props = defineProps({
 
 .hero-section-container.mobile {
     flex-direction: column;
-    margin-top: 0;
+    margin: 0;
 }
 
 .hero-left-fixed.mobile {

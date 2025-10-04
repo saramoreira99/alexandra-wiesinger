@@ -6,9 +6,10 @@ import ResponsiveServicesPage from "@/components/organisms/ResponsiveServicesPag
 
 <template>
   <ResponsiveServicesPage
-      title="AW Consulting"
+      title="CONSULTING"
+      subtitle="Individuelle Beratung für Ihre Unternehmensziele"
       :image="imgConsulting"
-      cta-text="Jetzt Beratung anfragen"
+      cta-text="Ihr Erfolgskonzept entwickeln"
   >
     <template #description>
       <ConsultingText />

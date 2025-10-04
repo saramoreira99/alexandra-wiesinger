@@ -6,9 +6,10 @@ import ResponsiveServicesPage from "@/components/organisms/ResponsiveServicesPag
 
 <template>
   <ResponsiveServicesPage
-      title="AW Academy"
+      title="ACADEMY"
+      subtitle="Praxisnahe Schulungen & Workshops für Ihr Team"
       :image="imgAcademy"
-      cta-text="Jetzt zur Academy anmelden"
+      cta-text="Kompetenzen nachhaltig stärken"
   >
     <template #description>
       <AcademyText />

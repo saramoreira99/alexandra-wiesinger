@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer">
+  <footer class="footer" :class="{ mobile: isMobile }">
     <div class="footer-overlay"></div>
     <div class="footer-text">
       © {{ new Date().getFullYear() }} Alexandra Wiesinger
@@ -35,7 +35,11 @@
 </template>
 
 <script setup>
-import bgImg from '@/assets/images/AW_Logo-gradient.jpg'
+import { useBreakpoints } from '@/composables/useBreakpoints'
+import { computed } from 'vue'
+
+const { isSm, isXs } = useBreakpoints()
+const isMobile = computed(() => isSm() || isXs())
 
 const linkStyle = {
   textDecoration: 'none',
@@ -56,10 +60,13 @@ const linkStyle = {
   background-position: center;
   color: #0D0535;
   box-shadow: var(--box-shadow-light);
-  margin: 3rem 3rem 0 3rem;
+  margin: auto 3rem;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  
+}
+.footer.mobile {
+  margin: 3rem 0 0 0; 
+  padding: 0.5rem 0;
 }
 
 .footer-overlay {

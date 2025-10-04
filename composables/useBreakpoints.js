@@ -1,20 +1,18 @@
 import { ref, onMounted, onUnmounted } from "vue";
 
 export function useBreakpoints() {
-  const width = ref(0); // Startwert, bevor window verfügbar ist
+  const width = ref(window.innerWidth);
 
   const breakpoints = {
     xs: 480,
     sm: 767,
-    md: 1024,
+    md: 1024, 
     lg: 1230,
     xl: 1440,
   };
 
   const updateWidth = () => {
-    if (typeof window !== "undefined") {
-      width.value = window.innerWidth;
-    }
+    width.value = window.innerWidth;
   };
 
   const isXs = () => width.value < breakpoints.xs;
@@ -27,16 +25,8 @@ export function useBreakpoints() {
   const isTablet = () => isMd();
   const isDesktop = () => isLg() || isXl();
 
-  onMounted(() => {
-    updateWidth();
-    window.addEventListener("resize", updateWidth);
-  });
-
-  onUnmounted(() => {
-    if (typeof window !== "undefined") {
-      window.removeEventListener("resize", updateWidth);
-    }
-  });
+  onMounted(() => window.addEventListener("resize", updateWidth));
+  onUnmounted(() => window.removeEventListener("resize", updateWidth));
 
   return {
     width,

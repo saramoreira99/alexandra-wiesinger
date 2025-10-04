@@ -29,7 +29,7 @@ const title = "ÜBER MICH";
   text-align: left;
   border-radius: 15px;
   max-height: 30%;
-  margin: 4rem 0 4rem 0;
+  margin: 4rem 0 6rem 0;
   box-shadow: var(--card-shadow-light);
 }
 

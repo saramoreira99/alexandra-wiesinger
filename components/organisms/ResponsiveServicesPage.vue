@@ -21,8 +21,10 @@ const isMobile = computed(() => isSm() || isXs())
 
 const props = defineProps({
   title: String,
+  subtitle: String,
   image: String,
   ctaText: String,
+  to: String,
 })
 
 </script>

@@ -1,6 +1,6 @@
 <template>
-  <section id="services" class="services-carousel">
-    <h2 class="services-overview">Qualität in allen Bereichen</h2>
+  <section id="services" class="services-carousel" aria-label="Unsere Dienstleistungen im Überblick" role="region">
+    <h2 class="services-overview" aria-label="Qualität im Fokus" title="Unsere Dienstleistungen">Qualität im Fokus</h2>
 
     
     <div class="desktop-grid">
@@ -94,14 +94,15 @@ onMounted(() => {
 
 <style scoped>
 .services-carousel {
-  margin-top: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 
 .services-overview {
   text-align: center;
   font-weight: bold;
   text-transform: uppercase;
-  margin: 3rem 0 2rem 0;
+  margin: 4rem 2rem 1.5rem 2rem;
 }
 
 

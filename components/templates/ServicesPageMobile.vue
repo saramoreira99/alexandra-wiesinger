@@ -3,9 +3,11 @@ import { defineProps } from 'vue';
 import BottomSheet from "@/components/organisms/BottomSheet.vue";
 
 const props = defineProps({
-  title: { type: String, required: true },
-  image: { type: String, required: true },
+  title: { type: String, default: "Informationen"},
+  subtitle: { type: String, default: "" },
+  image: { type: String, required: true,  },
   ctaText: { type: String, default: 'Kontakt' },
+  to: { type: String, default: '/kontakt' },
 });
 </script>
 
@@ -17,7 +19,7 @@ const props = defineProps({
       <h1 class="services-title">{{ title }}</h1> 
     </section>
 
-    <BottomSheet :cta-text="ctaText">
+    <BottomSheet :cta-text="ctaText" :to="to" :subtitle="subtitle">
       <template #text>
         <slot name="description" />
       </template>

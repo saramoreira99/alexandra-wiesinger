@@ -6,9 +6,10 @@ import ResponsiveServicesPage from "@/components/organisms/ResponsiveServicesPag
 
 <template>
   <ResponsiveServicesPage
-      title="AW Audit"
+      title="AUDIT"
+      subtitle="Praxisnahe Auditierung & Vorbereitung auf Ihre Zertifizierung"
       :image="imgAudit"
-      cta-text="Audit jetzt buchen"
+      cta-text="Zertifizierungsstrategie entwickeln"
   >
     <template #description>
       <AuditText />

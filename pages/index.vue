@@ -25,8 +25,8 @@ const isMobile = computed(() => isSm() || isXs())
       <AboutSection />
       <ServicesGrid />
     </div>
-    <div v-if="isSm()" class="button-container">
-      <Button :size="'md'" class="fixed-button">Test</Button>
+    <div v-if="isMobile" class="button-container">
+      <Button :size="'md'" class="fixed-button">Ihr Erfolg beginnt hier</Button>
     </div>
   </main>
 </template>
@@ -41,8 +41,9 @@ const isMobile = computed(() => isSm() || isXs())
 .fixed-button {
   display: flex;
   position: fixed;
-  top: 90%;
+  top: 88%;
   justify-content: center;
+  z-index: 1000; 
 }
 .fixed-button button {
   padding-left: 3em;

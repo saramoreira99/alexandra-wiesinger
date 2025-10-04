@@ -15,7 +15,7 @@
   --h1-size: 2rem;
   --h2-size: 1.5rem;
   --h3-size: 1.25rem;
-  --subheading-size: 0.9rem;
+  --subtitle-size: 1rem;
   --body-size: 0.875rem;
   --button-large-size: 0.875rem;
   --button-medium-size: 0.75rem;
@@ -26,6 +26,25 @@
   --breakpoint-md: 1024px;
   --breakpoint-lg: 1230px;
   --breakpoint-xl: 1440px;
+  --page-margin: 0;
+}
+
+@media (min-width: 1024px) {
+   :root {
+    --global-page-margin: 6rem 3rem;
+  }
+}
+
+@media (min-width: 1230px) {
+  :root {
+    --global-page-margin: 8rem 6rem; 
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --global-page-margin: 8rem 6rem; 
+  }
 }
 
 h1 {
@@ -37,8 +56,8 @@ h2 {
 h3 {
   font-size: var(--h3-size);
 }
-.subheading {
-  font-size: var(--subheading-size);
+.subtitle {
+  font-size: var(--subtitle-size);
 }
 body {
   font-size: var(--body-size);
@@ -61,7 +80,7 @@ footer {
     --h1-size: 2rem;
     --h2-size: 1.5rem;
     --h3-size: 1.25rem;
-    --subheading-size: 0.9rem;
+    --subtitle-size: 1rem;
     --body-size: 0.875rem;
     --button-large-size: 0.875rem;
     --button-medium-size: 0.75rem;
@@ -75,7 +94,7 @@ footer {
     --h1-size: 2.625rem;
     --h2-size: 2.25rem;
     --h3-size: 1.875rem;
-    --subheading-size: 1.181rem;
+    --subtitle-size: 1.281rem;
     --body-size: 0.9375rem;
     --button-large-size: 1rem;
     --button-medium-size: 0.875rem;
@@ -89,7 +108,7 @@ footer {
     --h1-size: 3.25rem;
     --h2-size: 2.785rem;
     --h3-size: 2.321rem;
-    --subheading-size: 1.463rem;
+    --subtitle-size: 1.463rem;
     --body-size: 0.9rem;
     --button-large-size: 1.125rem;
     --button-medium-size: 0.9275rem;
@@ -103,7 +122,7 @@ footer {
     --h1-size: 3.75rem;
     --h2-size: 3.214rem;
     --h3-size: 2.678rem;
-    --subheading-size: 1.688rem;
+    --subtitle-size: 1.688rem;
     --body-size: 1rem;
     --button-large-size: 1.1875rem;
     --button-medium-size: 1rem;
@@ -117,7 +136,7 @@ footer {
     --h1-size: 4.25rem;
     --h2-size: 3.642rem;
     --h3-size: 3.036rem;
-    --subheading-size: 1.913rem;
+    --subtitle-size: 1.913rem;
     --body-size: 1.05rem;
     --button-large-size: 1.25rem;
     --button-medium-size: 1.0625rem;
