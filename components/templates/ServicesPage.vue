@@ -1,14 +1,14 @@
 <template>
   <div class="services-page">
-    <div class="services-box">
-      <div class="img-box">
-        <img :src="image" class="services-hero" alt="Service Hero Image" />
-      </div>
-      <div class="description-box">
-        <h3 class="services-title">{{ title }}</h3>
-        <div class="services-description">
-          <slot name="description" />
-        </div>
+
+    <div class="img-box">
+      <h2 class="services-title">{{ title }}</h2>
+      <img :src="image" class="services-hero" alt="Service Hero Image" />
+    </div>
+    <div class="description-box">
+      <h3 class="description-title">Beschreibung</h3>
+      <div class="services-description">
+        <slot name="description" />
       </div>
     </div>
   </div>
@@ -24,68 +24,91 @@ const props = defineProps({
 <style scoped>
 .services-page {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 1rem;
   box-sizing: border-box;
-  margin-top: 120px;
+  margin-top: 4rem;
+}
+
+.services-title {
+  margin: 1rem 0;
+  text-align: center;
 }
 
 .services-box {
   display: flex;
-  flex-direction: row;
   background-color: white;
-  border-radius: 30px;
+  border-radius: 15px;
+  max-width: fit-content;
   overflow: hidden;
-  width: clamp(400px, 80%, 900px);
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--card-shadow-light);
+  width: calc(100% - 4rem);
   border: 1px solid rgba(0, 0, 0, 0.05);
   background-image: linear-gradient(145deg, #ffffff, #f0f0f0);
-  padding: 15px;
-  margin-top: 20px;
+  padding: 1rem 1rem 1rem 2rem;
+  margin-top: 3rem;
+  min-height: 60vh;
 }
 
 .img-box {
   flex: 0 0 30%;
-  aspect-ratio: 120 / 197;
   overflow: hidden;
+  flex-direction: column;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 20px;
+  justify-content: space-evenly;
+  padding: 0;
+  max-height: 60%;
+  background: linear-gradient(145deg, #0D0535, #df4f83);
+  border-radius: 15px;
+  margin: 3rem;
 }
 
 .services-hero {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 2/3;
   object-fit: cover;
   border: #0D0535 1px solid;
+  border-radius: 15px;
 }
 
 .description-box {
-  flex: 1;
-  padding: 1rem;
   display: flex;
+  background-color: white;
+  border-radius: 15px;
+  max-width: fit-content;
+  overflow: hidden;
+  justify-content:flex-start;
+  align-items: flex-start;
+  box-shadow: var(--card-shadow-light);
+  width: calc(100% - 4rem);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 2rem 1rem 1rem 2rem;
+  margin-top: 3rem;
+  min-height: 60vh;
+  flex: 1;
   flex-direction: column;
-  justify-content: center;
   color: #0D0535;
 }
 
-.description-box h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: 20px;
-  font-weight: bold;
+.description-title {
   color: #0D0535;
+  padding-bottom: 2rem;
 }
 
-/* Mobile Anpassungen */
+
 @media (max-width: 767px) {
   .services-box {
     flex-direction: column;
     align-items: center;
   }
+
   .img-box {
     padding: 10px;
   }
+
   .description-box {
     padding: 1rem 0.5rem;
   }

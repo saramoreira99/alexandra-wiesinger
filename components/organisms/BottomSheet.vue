@@ -9,44 +9,61 @@ const props = defineProps({
 
 const emit = defineEmits(['cta-click']);
 
-const onCtaClick = () => emit('cta-click');
+const hideButton = ref(true); 
+let lastScrollY = 0;
+
+const handleScroll = () => {
+  const currentScrollY = window.scrollY;
+
+  if (currentScrollY > lastScrollY && currentScrollY > 50) {
+    
+    hideButton.value = false;
+  } else {
+    
+    hideButton.value = true;
+  }
+
+  lastScrollY = currentScrollY;
+};
+
+onMounted(() => {
+  lastScrollY = window.scrollY; 
+  window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
+
+const onCtaClick = () => emit("cta-click");
 </script>
 
 <template>
-  <section
-    class="bottom-sheet"
-    role="region"
-    aria-labelledby="sheet-title"
-  >
+  <section class="bottom-sheet" role="region" aria-labelledby="sheet-title">
     <header class="sheet-header">
-      <div class="handle" aria-hidden="true"></div>
-      <h2 id="sheet-title" class="title">{{ title }}</h2>
+      <h1 id="sheet-title" class="title">{{ title }}</h1>
     </header>
 
     <main class="sheet-content">
       <slot name="text" />
     </main>
 
-    <footer class="cta-container">
-      <ContactButton
-        class="cta-button"
-        size="xl"
-        :label="ctaText"
-        aria-label="Kontakt aufnehmen"
-        @click="onCtaClick"
-      />
-    </footer>
+
   </section>
+
+  <footer :class="['cta-container', { hidden: hideButton }]">
+    <Button class="cta-button" size="xl" :label="ctaText" aria-label="Kontakt aufnehmen" @click="onCtaClick" />
+  </footer>
 </template>
 
 <style scoped>
 .bottom-sheet {
   background: white;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
-  padding: 20px;
-  margin-top: 20px;
+  border-radius: 15px;
+  padding: 2rem 2rem 6rem 2rem;
+  min-height: 70vh;
+  box-shadow: var(--box-shadow-light);
+  z-index: 1;
 }
 
 .sheet-header {
@@ -55,37 +72,35 @@ const onCtaClick = () => emit('cta-click');
   align-items: center;
 }
 
-.handle {
-  width: 40px;
-  height: 4px;
-  background: #ccc;
-  border-radius: 2px;
-  margin-bottom: 10px;
-}
-
 .title {
-  font-size: 1.5em;
-  font-weight: bold;
+  font-weight: bolder;
   text-align: center;
+  z-index: 2; 
 }
 
 .sheet-content {
   margin-top: 10px;
-  font-size: 1em;
   line-height: 1.5;
-  color: #333;
+
 }
 
 .cta-container {
+  position: fixed;
+  bottom: 3rem; 
+  align-items: center;
   margin-top: 20px;
   display: flex;
   justify-content: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.cta-container.hidden {
+  transform: translateY(100%);
+  opacity: 0;
 }
 
 .cta-button {
   width: 100%;
-  max-width: 400px;
-  padding: 15px;
-  font-size: 1em;
 }
 </style>

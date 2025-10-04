@@ -4,13 +4,9 @@ import Highlight from './Highlight.vue'
 
 <template>
   <div class="academy-text">
-    <p>
+    <p class ="text-intro">
       In der <Highlight>AW Academy</Highlight> biete ich als erfahrene Dozentin eine breite Palette an 
-      <Highlight>Schulungen, Seminaren und Workshops</Highlight> an, die speziell auf die Bedürfnisse von Unternehmen und Akademien zugeschnitten sind.
-    </p>
-
-    <p>
-      Mein Fokus liegt auf den Bereichen <Highlight>Qualitätsmanagement (QM)</Highlight> und <Highlight>HSE</Highlight>, mit Themen wie:
+      <Highlight>Schulungen, Seminaren und Workshops</Highlight> an, die speziell auf die Bedürfnisse von Unternehmen und Akademien zugeschnitten sind. Mein Fokus liegt auf den Bereichen <Highlight>Qualitätsmanagement (QM)</Highlight> und <Highlight>HSE</Highlight>, mit Themen wie:
     </p>
 
     <ul>
@@ -22,9 +18,6 @@ import Highlight from './Highlight.vue'
     <p>
       Ein besonders wichtiger Bereich ist die 
       <Highlight>Ausbildung zum Qualitätsbeauftragten, Qualitätsmanager und internen Qualitätsauditor</Highlight>, in der ich auch als Prüferin tätig bin.
-    </p>
-
-    <p>
       Zusätzlich biete ich <Highlight>Schulungen zur AZAV-Zertifizierung</Highlight> an, um Bildungsträger optimal auf ihre Zertifizierung vorzubereiten.
     </p>
 
@@ -61,5 +54,15 @@ import Highlight from './Highlight.vue'
   align-items: flex-start;
   color: #0D0535;
   text-align: left;
+}
+
+
+.academy-text ul {
+  list-style-type: circle;
+  padding-left: 1rem;
+}
+
+.academy-text li {
+  padding-left: 0.5rem;
 }
 </style>

@@ -13,7 +13,6 @@ import heroText from '@/content/heroText.js'
   line-height: 1.5;
   color: white;
   text-align: left;
-  max-width: 60ch;
   margin: 0;
 }
 </style>

@@ -14,7 +14,7 @@
     <div class="button-container">
       <Button v-if="link" :to="link" label="MEHR INFOS" size="xs" variant="filled" aria-label="Mehr Infos">MEHR
         INFOS</Button>
-      <Button v-else id="ServiceButton" @click="$emit('more-info')" label="MEHR INFOS" size="xs" variant="filled"
+      <Button v-else id="ServiceButton" @click="$emit('more-info')" label="MEHR INFOS" size="xs" variant="filled" boxshadow="dark"
         aria-label="Mehr Infos">
         MEHR INFOS
       </button>

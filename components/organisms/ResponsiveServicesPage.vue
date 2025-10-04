@@ -1,9 +1,7 @@
 <template>
   <component
     :is="isMobile ? ServicesPageMobile : ServicesPage"
-    :title="props.title"
-    :image="props.image"
-    :ctaText="props.ctaText"
+    v-bind="props"
   >
     <template #description>
       <slot name="description" />
@@ -15,6 +13,10 @@
 import ServicesPageMobile from '@/components/templates/ServicesPageMobile.vue'
 import ServicesPage from '@/components/templates/ServicesPage.vue'
 import { useBreakpoints } from '@/composables/useBreakpoints'
+import { computed } from 'vue'
+
+const { isSm, isXs } = useBreakpoints()
+const isMobile = computed(() => isSm() || isXs())
 
 
 const props = defineProps({
@@ -23,6 +25,4 @@ const props = defineProps({
   ctaText: String,
 })
 
-const { isSm, isXs } = useBreakpoints()
-const isMobile = isSm() || isXs()
 </script>

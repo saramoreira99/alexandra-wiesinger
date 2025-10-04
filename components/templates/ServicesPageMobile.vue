@@ -13,11 +13,12 @@ const props = defineProps({
   <main class="services-page-mobile" role="main">
     <section class="img-box" aria-hidden="true">
       <img :src="image" class="services-hero" alt="Service Hero Image" />
+      <div class="gradient-overlay"></div>
+      <h1 class="services-title">{{ title }}</h1> 
     </section>
 
     <BottomSheet :cta-text="ctaText">
       <template #text>
-        <h3 class="services-title">{{ props.title }}</h3>
         <slot name="description" />
       </template>
     </BottomSheet>
@@ -38,26 +39,39 @@ const props = defineProps({
   width: 100%;
   display: flex;
   justify-content: center;
-  position: fixed; 
+  align-items: center;
+  position: relative; 
+  z-index: 0;
+  top: -1rem; 
 }
 
 .services-hero {
   width: 100%;
-  position: fixed;
+  height: 40vh; 
   object-fit: cover;
-  object-position: top;
-  aspect-ratio: 1 / 1;
-  border: none;
-  border-radius: 0;
-  filter: blur(5px);
+  object-position: center;
+}
+
+.gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 101%;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(to bottom,
+        rgba(13, 5, 53, 0) 0%,
+        rgba(13, 5, 53, 1) 100%);
 }
 
 .services-title {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  font-size: 20px;
+  position: absolute;
+  bottom: 0.5rem;
+  left: 2rem;
   font-weight: bold;
-  color: #0D0535;
-  text-align: center;
+  text-align: left;
+  z-index: 100;
+  text-transform: uppercase; 
 }
 </style>

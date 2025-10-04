@@ -1,5 +1,5 @@
 <template>
-  <section class="services-carousel">
+  <section id="services" class="services-carousel">
     <h2 class="services-overview">Qualität in allen Bereichen</h2>
 
     
@@ -123,7 +123,7 @@ onMounted(() => {
   -webkit-overflow-scrolling: touch;
   gap: 1rem;
   padding: 0;
-  scroll-padding-left: 2rem;
+  scroll-padding-left: 2.3rem;
   scroll-padding-right: 2rem;
 }
 

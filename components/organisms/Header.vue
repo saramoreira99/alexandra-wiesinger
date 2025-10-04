@@ -46,7 +46,7 @@ const isMobile = computed(() => isSm() || isXs())
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.8rem 2rem;
+  padding: 0.5rem 3rem;
   position: fixed;
   top: 0;
   width: 100%;

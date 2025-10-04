@@ -1,35 +1,26 @@
-
-
 :root {
-
-  --color-bg: #0D0535;
+  --color-bg: #0d0535;
   --color-text: #ffffff;
   --color-primary: #df4f83;
   --color-highlight-bg: #f5f5f5;
 
- 
-  --box-shadow-light: 
-    0px 2px 4px rgba(255, 255, 255, 0.15),
-    0px 6px 12px rgba(255, 255, 255, 0.25);
+  --box-shadow-light: 0px 2px 4px rgba(255, 255, 255, 0.1),
+    0px 6px 12px rgba(255, 255, 255, 0.15);
 
-  --box-shadow-dark: 
-    0px 2px 4px rgba(0, 0, 0, 0.15),
-    0px 8px 20px rgba(0, 0, 0, 0.25);
+  --box-shadow-dark: 0px 2px 4px rgba(0, 0, 0, 0.1),
+    0px 8px 20px rgba(0, 0, 0, 0.15);
 
+  --font-family: "Source Sans Pro", sans-serif;
 
-  --font-family: 'Source Sans Pro', sans-serif;
-
-
-  --h1-size: 1.75rem;
-  --h2-size: 1.25rem;
-  --h3-size: 1.125rem;
-  --subheading-size: 0.875rem;
+  --h1-size: 2rem;
+  --h2-size: 1.5rem;
+  --h3-size: 1.25rem;
+  --subheading-size: 0.9rem;
   --body-size: 0.875rem;
   --button-large-size: 0.875rem;
   --button-medium-size: 0.75rem;
   --button-small-size: 0.625rem;
 
-  
   --breakpoint-xs: 480px;
   --breakpoint-sm: 767px;
   --breakpoint-md: 1024px;
@@ -37,76 +28,100 @@
   --breakpoint-xl: 1440px;
 }
 
-h1 { font-size: var(--h1-size); }
-h2 { font-size: var(--h2-size); }
-h3 { font-size: var(--h3-size); }
-.subheading { font-size: var(--subheading-size); }
-body { font-size: var(--body-size); }
-button.large { font-size: var(--button-large-size); }
-button.medium { font-size: var(--button-medium-size); }
-button.small { font-size: var(--button-small-size); }
+h1 {
+  font-size: var(--h1-size);
+}
+h2 {
+  font-size: var(--h2-size);
+}
+h3 {
+  font-size: var(--h3-size);
+}
+.subheading {
+  font-size: var(--subheading-size);
+}
+body {
+  font-size: var(--body-size);
+}
+button.large {
+  font-size: var(--button-large-size);
+}
+button.medium {
+  font-size: var(--button-medium-size);
+}
+button.small {
+  font-size: var(--button-small-size);
+}
+footer {
+  font-size: var(--footer-size);
+}
 
 @media (min-width: 480px) {
   :root {
-    --h1-size: 1.75rem;
-    --h2-size: 1.25rem;
-    --h3-size: 1.125rem;
-    --subheading-size: 0.875rem;
+    --h1-size: 2rem;
+    --h2-size: 1.5rem;
+    --h3-size: 1.25rem;
+    --subheading-size: 0.9rem;
     --body-size: 0.875rem;
     --button-large-size: 0.875rem;
     --button-medium-size: 0.75rem;
     --button-small-size: 0.625rem;
+    --footer-size: calc(var(--body-size) * 0.75);
   }
 }
 
 @media (min-width: 767px) {
   :root {
-    --h1-size: 2.3125rem;
-    --h2-size: 1.5625rem;
-    --h3-size: 1.375rem;
-    --subheading-size: 0.9375rem;
+    --h1-size: 2.625rem;
+    --h2-size: 2.25rem;
+    --h3-size: 1.875rem;
+    --subheading-size: 1.181rem;
     --body-size: 0.9375rem;
     --button-large-size: 1rem;
     --button-medium-size: 0.875rem;
     --button-small-size: 0.75rem;
+    --footer-size: calc(var(--body-size) * 0.75);
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    --h1-size: 2.875rem;
-    --h2-size: 1.875rem;
-    --h3-size: 1.625rem;
-    --subheading-size: 1rem;
-    --body-size: 1rem;
+    --h1-size: 3.25rem;
+    --h2-size: 2.785rem;
+    --h3-size: 2.321rem;
+    --subheading-size: 1.463rem;
+    --body-size: 0.9rem;
     --button-large-size: 1.125rem;
     --button-medium-size: 0.9275rem;
     --button-small-size: 0.8125rem;
+    --footer-size: calc(var(--body-size) * 0.75);
   }
 }
 
 @media (min-width: 1230px) {
   :root {
-    --h1-size: 3.25rem;
-    --h2-size: 2.1875rem;
-    --h3-size: 1.9375rem;
-    --subheading-size: 1.125rem;
-    --body-size: 1.0625rem;
+    --h1-size: 3.75rem;
+    --h2-size: 3.214rem;
+    --h3-size: 2.678rem;
+    --subheading-size: 1.688rem;
+    --body-size: 1rem;
     --button-large-size: 1.1875rem;
     --button-medium-size: 1rem;
     --button-small-size: 0.875rem;
+    --footer-size: calc(var(--body-size) * 0.75);
   }
 }
 
 @media (min-width: 1440px) {
   :root {
-    --h1-size: 3.625rem;
-    --h2-size: 2.5rem;
-    --h3-size: 2.1875rem;
-    --subheading-size: 1.25rem;
-    --body-size: 1.1875rem;
+    --h1-size: 4.25rem;
+    --h2-size: 3.642rem;
+    --h3-size: 3.036rem;
+    --subheading-size: 1.913rem;
+    --body-size: 1.05rem;
     --button-large-size: 1.25rem;
     --button-medium-size: 1.0625rem;
     --button-small-size: 0.9375rem;
+    --footer-size: calc(var(--body-size) * 0.75);
   }
 }
