@@ -26,26 +26,9 @@
   --breakpoint-md: 1024px;
   --breakpoint-lg: 1230px;
   --breakpoint-xl: 1440px;
-  --page-margin: 0;
 }
 
-@media (min-width: 1024px) {
-   :root {
-    --global-page-margin: 6rem 3rem;
-  }
-}
 
-@media (min-width: 1230px) {
-  :root {
-    --global-page-margin: 8rem 6rem; 
-  }
-}
-
-@media (min-width: 1440px) {
-  :root {
-    --global-page-margin: 8rem 6rem; 
-  }
-}
 
 h1 {
   font-size: var(--h1-size);

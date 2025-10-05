@@ -1,5 +1,5 @@
 <template>
-  <header class="header" :class="{ mobile: isMobile }">
+  <header :class="['header', isMobile ? 'header-mobile' : 'header-desktop']">
     <div class="header-left">
       <div v-if="isMobile" class="hamburger">
         <HamburgerMenu />
@@ -36,31 +36,42 @@ import HamburgerMenu from '@/components/molecules/HamburgerMenu.vue'
 import { useBreakpoints } from '@/composables/useBreakpoints.js'
 import { computed } from 'vue'
 
-const { isSm, isXs } = useBreakpoints()
-const isMobile = computed(() => isSm() || isXs())
-
+const breakpoints = useBreakpoints()
+const isMobile = computed(() => breakpoints.isSm() || breakpoints.isXs())
 </script>
 
 <style scoped>
+
 .header {
+  padding: 0.5rem 3rem !important;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 3rem;
   position: fixed;
   top: 0;
   width: 100%;
   background: linear-gradient(rgba(13, 5, 53, 0.8), rgba(13, 5, 53, 0));
   z-index: 1000;
   backdrop-filter: blur(1px);
+  transition: padding 0.2s ease; 
 }
 
 .header.mobile {
-  padding: 0.5rem 1rem;
-  background: transparent;
+  padding: 0.5rem 1rem !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(rgba(13, 5, 53, 0.8), rgba(13, 5, 53, 0));
+  z-index: 1000;
+  backdrop-filter: blur(1px);
+  transition: padding 0.2s ease; 
 }
 
-.header-left, .header-right {
+.header-left,
+.header-right {
   display: flex;
   align-items: center;
 }

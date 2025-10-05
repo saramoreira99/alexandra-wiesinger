@@ -11,9 +11,8 @@ import AboutText from "@/components/atoms/AboutText.vue";
 import { computed } from 'vue'
 import { useBreakpoints } from '@/composables/useBreakpoints'
 
-const { isSm, isXs } = useBreakpoints()
-
-const isMobile = computed(() => isSm() || isXs())
+const breakpoints = useBreakpoints();
+const isMobile = computed(() => breakpoints.isSm() || breakpoints.isXs());
 
 const title = "ÜBER MICH";
 </script>

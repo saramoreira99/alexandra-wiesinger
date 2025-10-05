@@ -4,7 +4,7 @@ import Highlight from './Highlight.vue'
 </script>
 
 <template>
-  <div class="hero-text">
+  <div class="consulting-text">
     <p>
       Mit <Highlight>AW Consulting</Highlight> unterstütze ich Unternehmen bei der Implementierung und Optimierung ihres
       <Highlight>Qualitätsmanagementsystems</Highlight>, insbesondere im Rahmen der <Highlight>ISO 9001</Highlight>.
@@ -36,15 +36,25 @@ import Highlight from './Highlight.vue'
 
 
 <style scoped>
-.hero-text {
+.consulting-text {
   line-height: 1.5;
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.3rem;
   justify-content: center;
   align-items: flex-start;
-  color: #0D0535;
   text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.consulting-text ul {
+  list-style-type: circle;
+  padding-left: 1rem;
+}
+
+.consulting-text li {
+  padding-left: 0.5rem;
 }
 </style>

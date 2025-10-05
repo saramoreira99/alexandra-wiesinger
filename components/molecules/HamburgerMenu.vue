@@ -57,9 +57,8 @@ const overlayMenu = ref(null)
 const hamburgerBtn = ref(null)
 
 
-const { isSm, isXs } = useBreakpoints()
-
-const isMobile = computed(() => isSm() || isXs())
+const breakpoints = useBreakpoints();
+const isMobile = computed(() => breakpoints.isSm() || breakpoints.isXs());
 
 
 const route = useRoute()

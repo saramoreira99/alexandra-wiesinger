@@ -9,6 +9,12 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useBreakpoints } from '@/composables/useBreakpoints'
+
+const breakpoints = useBreakpoints();
+const isMobile = computed(() => breakpoints.isSm() || breakpoints.isXs());
+
 defineProps({
   title: {
     type: String,
@@ -57,7 +63,7 @@ defineProps({
   line-height: 1.6;
 }
 
-/* Breakpoints */
+
 @media (max-width: var(--breakpoint-sm)) {
   .page-title {
     font-size: var(--h3-size);

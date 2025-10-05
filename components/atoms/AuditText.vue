@@ -35,7 +35,6 @@ import Highlight from './Highlight.vue'
   gap: 1.5rem;
   justify-content: center;
   align-items: flex-start;
-  color: #0D0535;
   text-align: left;
 }
 </style>

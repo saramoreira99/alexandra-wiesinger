@@ -9,7 +9,8 @@
 html, body {
   font-family: var(--font-family);
   height: 100%;
-  margin: 0;
+  margin: 0; 
+  padding: 0;
   overscroll-behavior: none;
   color: var(--color-text);
   background-color: var(--color-bg);
@@ -22,7 +23,7 @@ body {
 }
 
 main {
-  flex: 1;
+  flex: 1 0 auto; 
 }
 
 footer.mobile {

@@ -15,8 +15,8 @@ import ServicesPage from '@/components/templates/ServicesPage.vue'
 import { useBreakpoints } from '@/composables/useBreakpoints'
 import { computed } from 'vue'
 
-const { isSm, isXs } = useBreakpoints()
-const isMobile = computed(() => isSm() || isXs())
+const breakpoints = useBreakpoints();
+const isMobile = computed(() => breakpoints.isSm() || breakpoints.isXs());
 
 
 const props = defineProps({

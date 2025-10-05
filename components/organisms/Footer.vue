@@ -38,8 +38,8 @@
 import { useBreakpoints } from '@/composables/useBreakpoints'
 import { computed } from 'vue'
 
-const { isSm, isXs } = useBreakpoints()
-const isMobile = computed(() => isSm() || isXs())
+const breakpoints = useBreakpoints();
+const isMobile = computed(() => breakpoints.isSm() || breakpoints.isXs());
 
 const linkStyle = {
   textDecoration: 'none',
@@ -53,19 +53,18 @@ const linkStyle = {
 .footer {
   position: relative;
   text-align: center;
-  padding: 1rem 0.5rem;
+  padding: 0.5rem;
   overflow: hidden;
   background-image: url('@/assets/images/AW_Logo-gradient.jpg');
   background-size: cover;
   background-position: center;
   color: #0D0535;
-  box-shadow: var(--box-shadow-light);
-  margin: auto 3rem;
+  margin: 0 3rem 0 3rem;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
 .footer.mobile {
-  margin: 3rem 0 0 0; 
+  margin: 0; 
   padding: 0.5rem 0;
 }
 

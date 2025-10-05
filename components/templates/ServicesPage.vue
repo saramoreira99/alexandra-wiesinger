@@ -1,22 +1,35 @@
 <template>
   <div class="services-page">
-  
-    <div class="img-box">
-      <h2 class="services-title">{{ title }}</h2>
-      <img :src="image" class="services-hero" alt="Service Hero Image" />
-    </div>
+    <div class="services-content">
+      <div class="description-box">
+        
+        <!-- Bild-Box -->
+        <div class="img-box">
+          <img :src="image" class="services-hero" alt="Service Hero Image" />
+          <div class="image-overlay"></div>
+        </div>
 
-  
-    <div class="description-box">
-      <h3 class="description-title">{{ subtitle }}</h3>
-      <div class="services-description">
-        <slot name="description" />
+        <!-- Inhalt -->
+        <div class="description-content">
+          <h3 class="description-title">{{ subtitle }}</h3>
+          <div class="services-description">
+            <slot name="description" />
+          </div>
+          <div class="button-wrapper">
+            <Button size="md" variant="filled" to="#kontakt" aria-label="Beratungstermin vereinbaren">
+              KOSTENLOSER BERATUNGSTERMIN
+            </Button>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import Button
+ from '../atoms/Button.vue';
 const props = defineProps({
   title: String,
   subtitle: String,
@@ -27,58 +40,69 @@ const props = defineProps({
 <style scoped>
 .services-page {
   display: flex;
-  align-items: stretch; 
-  justify-content: space-between;
-  margin: 9rem 3rem;
-  gap: 3rem; 
+  flex-direction: column;
+  min-height: 100vh; 
 }
 
-
-.services-title {
-  margin: 0 0 1.5rem 0;
-  text-align: center;
-  font-weight: bold;
+.services-content {
+  flex: 1; 
+  display: flex;
+  justify-content: center;
+  padding: 8rem 3rem;
+ 
 }
 
+.description-box {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-radius: 15px;
+  color: #0d0535;
+  box-shadow: var(--card-shadow-light);
+  overflow: hidden; 
+  
+}
 
 .img-box {
-  flex: 0 0 30%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  flex: 0 0 30%; 
+  position: relative;
 }
 
 .services-hero {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 15px;
-  box-shadow: var(--card-shadow-light);
 }
 
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+  pointer-events: none; 
+}
 
-.description-box {
+.description-content {
   flex: 1;
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: var(--card-shadow-light);
-  padding: 3rem 2rem;
-  color: #0D0535;
   display: flex;
   flex-direction: column;
-  min-height: 60vh;
+  padding: 3rem;
 }
 
 .description-title {
-  font-size: 1.1rem;
+  font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1.2rem;
-  color: #0D0535;
+  max-width: 34rem;
 }
 
 .services-description {
-  font-size: 1rem;
-  line-height: 1.6;
+  flex: 1;
+}
+
+.button-wrapper {
+  margin-top: 2rem;
 }
 </style>

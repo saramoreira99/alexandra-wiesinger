@@ -10,17 +10,17 @@ const props = defineProps({
 
 const emit = defineEmits(['cta-click']);
 
-const hideButton = ref(true); 
+const hideButton = ref(true);
 let lastScrollY = 0;
 
 const handleScroll = () => {
   const currentScrollY = window.scrollY;
 
   if (currentScrollY > lastScrollY && currentScrollY > 50) {
-    
+
     hideButton.value = false;
   } else {
-    
+
     hideButton.value = true;
   }
 
@@ -28,7 +28,7 @@ const handleScroll = () => {
 };
 
 onMounted(() => {
-  lastScrollY = window.scrollY; 
+  lastScrollY = window.scrollY;
   window.addEventListener("scroll", handleScroll);
 });
 
@@ -65,6 +65,7 @@ const onCtaClick = () => emit("cta-click");
   min-height: 70vh;
   box-shadow: var(--box-shadow-light);
   z-index: 1;
+  color: var(--color-bg);
 }
 
 .sheet-header {
@@ -76,7 +77,7 @@ const onCtaClick = () => emit("cta-click");
 .title {
   font-weight: bolder;
   text-align: center;
-  z-index: 2; 
+  z-index: 2;
 }
 
 .sheet-content {
@@ -91,7 +92,7 @@ const onCtaClick = () => emit("cta-click");
 
 .cta-container {
   position: fixed;
-  bottom: 3rem; 
+  bottom: 3rem;
   align-items: center;
   margin-top: 20px;
   display: flex;

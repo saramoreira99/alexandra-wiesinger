@@ -56,8 +56,8 @@ import { computed } from 'vue'
 import { useBreakpoints } from '@/composables/useBreakpoints'
 import Button from '@/components/atoms/Button.vue'
 
-const { isSm, isXs } = useBreakpoints()
-const isMobile = computed(() => isSm() || isXs())
+const breakpoints = useBreakpoints();
+const isMobile = computed(() => breakpoints.isSm() || breakpoints.isXs());
 
 const props = defineProps({
     heroImage: { type: String, default: heroImageDefault },

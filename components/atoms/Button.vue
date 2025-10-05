@@ -22,7 +22,8 @@ const props = defineProps({
   boxshadow: { type: String, default: 'light', validator: value => ['light', 'dark'].includes(value) }
 })
 
-const { isMobile } = useBreakpoints()
+const breakpoints = useBreakpoints();
+const isMobile = computed(() => breakpoints.isSm() || breakpoints.isXs());
 
 const sizeClass = computed(() => `size-${props.size}`)
 const variantClass = computed(() => `variant-${props.variant}`)

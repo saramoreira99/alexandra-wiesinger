@@ -18,4 +18,5 @@ import ResponsiveServicesPage from "@/components/organisms/ResponsiveServicesPag
 </template>
 
 <style scoped>
+
 </style>

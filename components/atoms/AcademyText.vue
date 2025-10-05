@@ -18,24 +18,19 @@ import Highlight from './Highlight.vue'
     <p>
       Ein besonders wichtiger Bereich ist die 
       <Highlight>Ausbildung zum Qualitätsbeauftragten, Qualitätsmanager und internen Qualitätsauditor</Highlight>, in der ich auch als Prüferin tätig bin.
-      Zusätzlich biete ich <Highlight>Schulungen zur AZAV-Zertifizierung</Highlight> an, um Bildungsträger optimal auf ihre Zertifizierung vorzubereiten.
+      Zusätzlich biete ich <Highlight>Schulungen zur AZAV-Zertifizierung</Highlight> an, um Bildungsträger optimal auf ihre Zertifizierung vorzubereiten. Unternehmen profitieren von meinen praxisnahen Seminaren, die sie direkt bei mir buchen können, während Akademien durch mein Angebot ihr Portfolio erweitern können.
     </p>
 
     <p>
-      Unternehmen profitieren von meinen praxisnahen Seminaren, die sie direkt bei mir buchen können, während Akademien durch mein Angebot ihr Portfolio erweitern können.
-    </p>
-
-    <p>
-      Dank meines Netzwerks kann ich zudem 
-      <Highlight>umfassende Weiterbildungen rund um integrierte Managementsysteme</Highlight> anbieten, die folgende Normen abdecken:
+      Dank meines Netzwerks kann ich zudem <Highlight>umfassende Weiterbildungen rund um integrierte Managementsysteme</Highlight> anbieten, die folgende Normen abdecken:
     </p>
 
     <ul>
-      <li><Highlight>ISO 9001</Highlight> – Qualitätsmanagement</li>
-      <li><Highlight>ISO 14001</Highlight> – Umweltmanagement</li>
-      <li><Highlight>ISO 45001</Highlight> – Arbeitssicherheitsmanagement</li>
-      <li><Highlight>ISO 50001</Highlight> – Energiemanagement</li>
-      <li><Highlight>ISO 27001</Highlight> – Informationssicherheitsmanagement</li>
+      <li><Highlight>ISO 9001 – Qualitätsmanagement</Highlight></li>
+      <li><Highlight>ISO 14001 – Umweltmanagement</Highlight></li>
+      <li><Highlight>ISO 45001 – Arbeitssicherheitsmanagement</Highlight></li>
+      <li><Highlight>ISO 50001 – Energiemanagement</Highlight></li>
+      <li><Highlight>ISO 27001 – Informationssicherheitsmanagement</Highlight></li>
     </ul>
 
     <p>Alle Schulungen basieren auf der <Highlight>Harmonized Structure (HS)</Highlight>.</p>
@@ -49,10 +44,9 @@ import Highlight from './Highlight.vue'
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.3rem;
   justify-content: center;
   align-items: flex-start;
-  color: #0D0535;
   text-align: left;
 }
 
